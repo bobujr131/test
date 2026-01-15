@@ -1,0 +1,210 @@
+/* =========================================
+   カジノ風ネオンデザイン用 CSS
+   RPGツクール作品紹介サイト
+========================================= */
+
+/* ---------- 色の定義（あとで変更しやすい） ---------- */
+:root {
+  --bg1: #120014;          /* 背景の暗い紫 */
+  --bg2: #240026;          /* 背景の明るい紫 */
+  --pink: #ff2fd6;         /* ネオンピンク */
+  --blue: #2fd9ff;         /* ネオンブルー */
+  --gold: #ffd86b;         /* ゴールド（カジノ感） */
+  --panel: rgba(0,0,0,0.55); /* 半透明パネル */
+}
+
+/* すべての要素のサイズ計算を安定させる */
+* {
+  box-sizing: border-box;
+}
+
+/* ---------- ページ全体の設定 ---------- */
+body {
+  margin: 0;
+  font-family: "Yu Gothic", sans-serif;
+  color: #fff;
+
+  /* カジノ風ネオン背景 */
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255,47,214,.35), transparent 40%),
+    radial-gradient(circle at 80% 30%, rgba(47,217,255,.35), transparent 40%),
+    linear-gradient(160deg, var(--bg1), var(--bg2));
+
+  overflow-x: hidden; /* 横スクロール防止 */
+}
+
+/* ---------- 背景に流れるライン演出 ---------- */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    120deg,
+    rgba(255,255,255,0.05) 0,
+    rgba(255,255,255,0.05) 2px,
+    transparent 2px,
+    transparent 8px
+  );
+  animation: bgMove 20s linear infinite;
+  pointer-events: none; /* クリックを邪魔しない */
+}
+
+/* 背景アニメーション */
+@keyframes bgMove {
+  to {
+    background-position: 600px 600px;
+  }
+}
+
+/* ---------- ヘッダー ---------- */
+header {
+  position: sticky;
+  top: 0;
+  background: rgba(0,0,0,.6);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 25px rgba(255,47,214,.4);
+  z-index: 10;
+}
+
+/* ヘッダー内のレイアウト */
+.nav {
+  max-width: 1100px;
+  margin: auto;
+  padding: 16px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ロゴ文字 */
+.logo {
+  font-weight: 900;
+  letter-spacing: .2em;
+  color: var(--gold);
+  text-shadow: 0 0 15px var(--gold);
+}
+
+/* メニューリンク */
+.nav a {
+  margin-left: 16px;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* ---------- ヒーローセクション ---------- */
+.hero {
+  max-width: 1100px;
+  margin: 60px auto;
+  padding: 20px;
+
+  /* PCでは横並び */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+/* タイトル文字 */
+.hero h1 {
+  color: var(--pink);
+  text-shadow: 0 0 30px var(--pink);
+}
+
+/* メインボタン */
+.cta {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 14px 24px;
+  background: linear-gradient(135deg, var(--gold), #fff2b0);
+  color: #000;
+  font-weight: bold;
+  border-radius: 14px;
+  text-decoration: none;
+  box-shadow: 0 0 30px var(--gold);
+}
+
+/* ---------- スクリーンショット表示 ---------- */
+.float-wrap {
+  position: relative;
+  min-height: 420px;
+}
+
+/* スクショ1枚の設定 */
+.shot {
+  position: absolute;
+  width: 220px;
+  border-radius: 18px;
+  box-shadow: 0 0 40px rgba(255,47,214,.6);
+  animation: float 6s ease-in-out infinite;
+}
+
+/* 画像を枠いっぱいに */
+.shot img {
+  width: 100%;
+  display: block;
+}
+
+/* 位置調整 */
+.s1 { top: 20px; left: 0; }
+.s2 { top: 140px; left: 30%; animation-delay: 1s; }
+.s3 { top: 60px; left: 60%; animation-delay: 2s; }
+
+/* 浮遊アニメーション */
+@keyframes float {
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* ---------- セクション共通 ---------- */
+section {
+  max-width: 1100px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+/* 黒い半透明カード */
+.card {
+  background: var(--panel);
+  padding: 24px;
+  border-radius: 18px;
+}
+
+/* 3カラム表示 */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 20px;
+}
+
+/* ---------- BGMボタン ---------- */
+.bgm-btn {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  padding: 12px 16px;
+  border-radius: 50px;
+  border: none;
+  font-weight: bold;
+  background: var(--pink);
+  color: #000;
+  box-shadow: 0 0 20px var(--pink);
+}
+
+/* ---------- スマホ対応 ---------- */
+@media (max-width: 900px) {
+
+  /* 縦並びに変更 */
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  /* スクショエリア縮小 */
+  .float-wrap {
+    min-height: 300px;
+  }
+
+  /* 1列表示 */
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
