@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<!-- ================================
+  RPGツクール作品紹介サイト
+  カジノ風ネオンデザイン
+  index.html
+================================ -->
+<html lang="ja">
+<head>
+  <!-- 文字コード指定 -->
+  <meta charset="UTF-8" />
+
+  <!-- スマホ対応（レスポンシブ対応に必須） -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- サイトタイトル -->
+  <title>RPGツクール作品紹介|ASINO STYLE</title>
+
+  <!-- 外部CSS読み込み -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ================================
+  ヘッダー（ロゴ・ナビゲーション）
+================================ -->
+<header>
+  <div class="nav">
+    <!-- サイトロゴ -->
+    <div class="logo">ギャンブラー討伐</div>
+
+    <!-- ナビゲーションメニュー -->
+    <nav>
+      <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3646364271">STORY</a>
+      <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3646364271">SYSTEM</a>
+      <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3646364271">PLAY</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ================================
+  メインコンテンツ
+================================ -->
+<main>
+
+  <!-- ===== ヒーローセクション（最初に表示される部分） ===== -->
+  <div class="hero">
+
+    <!-- テキストエリア -->
+    <div class="hero-text">
+      <h1>ギャブラーを討伐しろ</h1>
+      <p>
+        ここは欲望と魔法が渦巻くカジノ都市。<br>
+        コインか、命か、それとも真実か――。
+      </p>
+
+      <!-- ダウンロードへの導線ボタン -->
+      <a class="cta" href="https://steamcommunity.com/sharedfiles/filedetails/?id=3646364271">PLAY NOW</a>
+    </div>
+
+    <!-- スクリーンショット表示エリア（浮遊演出） -->
+    <div class="float-wrap">
+      <div class="shot s1">
+        <img src="./img/バニー.png" alt ="ゲーム画面1">
+      </div>
+      <div class="shot s2">
+        <img src="./img/バトル.png" alt="ゲーム画面2">
+      </div>
+      <div class="shot s3">
+        <img src="./img/スクリーンショット 2026-01-16 010454.png" alt="ゲーム画面3">
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== ストーリー紹介 ===== -->
+  <section id="about">
+    <div class="card">
+      <h2>ストーリー</h2>
+      <p>
+        勝者はすべてを手に入れ、敗者はすべてを失う。<br>
+        カジノを巡るダークファンタジーRPG。
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== ゲーム特徴 ===== -->
+  <section id="features">
+    <div class="grid">
+      <div class="card">
+        <h3>ギャンブル</h3>
+        <p>勝ち負けもギャンブル！</p>
+      </div>
+      <div class="card">
+        <h3>バトル</h3>
+        <p>正当派?....</p>
+      </div>
+      <div class="card">
+        <h3>分岐</h3>
+        <p>全4種類</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ダウンロード ===== -->
+  <section id="download">
+    <div class="card">
+      <h2>ダウンロード</h2>
+      <a class="cta" href="https://steamcommunity.com/sharedfiles/filedetails/?id=3646364271">今すぐ遊ぶ</a>
+    </div>
+  </section>
+</main>
+
+<!-- ================================
+  フッター
+================================ -->
+<footer>
+  <small>© 2026 RINGO</small>
+</footer>
+
+<!-- ================================
+  BGM設定
+  ※ユーザー操作で再生（自動再生防止対策）
+================================ -->
+<audio id="bgm" src="./img/世の中ね顔かお金かなのよ（裏ボス）.mp3" loop></audio>
+
+<!-- BGM 再生 / 停止ボタン -->
+<button id="bgmToggle" class="bgm-btn">♪ BGM</button>
+
+<!-- 外部JavaScript読み込み -->
+<script src="script.js"></script>
+</body>
+</html>
